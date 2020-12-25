@@ -48,8 +48,20 @@ function AuthProvider(props) {
     };
 
     //Handle Logout
-    const handleLogin = async () => {
-        //do something
-    }
+    const handleLogout = async () => {
+        try {
+
+            //Remove data
+            await AsyncStorage.multiRemove(keys);
+
+            //AXIOS Authorization header
+            delete axios.defaults.headers.common["Authorization"];
+
+            //Dispatch to reducer
+            dispatch({ type: LOGGED_OUT });
+        } catch (error) {
+            throw new Error(error);
+        }
+    };
 
 }
