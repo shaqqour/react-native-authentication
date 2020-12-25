@@ -64,4 +64,14 @@ function AuthProvider(props) {
         }
     };
 
+    //Update user local storage data and dispatch to reducer
+    const updateUser = async(user) => {
+        try {
+            await AsyncStorage.setItem(USER_KEY, JSON.stringify(user));
+            dispatch({type: LOGGED_IN, user}); //Dispatch to reducer
+        } catch(error) {
+            throw new Error(error)
+        }
+    };
+
 }
