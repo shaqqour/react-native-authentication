@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import React, { useReducer } from 'react';
 import { AsyncStorage } from 'react-native';
 
@@ -29,8 +30,22 @@ function AuthProvider(props) {
 
     //Handle Login
     const handleLogin = async(data) => {
-        //do something
-    }
+        try {
+            //Store data
+            let {token, user} = data;
+            let data_ = [[USER_KEY, JSON.stringify(user)], [TOKEN_KEY, token]];
+            await AsyncStorage.multiSet(data_);
+
+            //AXIOS Authorization header
+            Axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
+
+            //Dispatch to Reducer
+            dispatch({type: LOGGED_IN, user: data.user});
+
+        } catch(error) {
+            throw new Error(error);
+        }
+    };
 
     //Handle Logout
     const handleLogin = async () => {
