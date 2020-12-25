@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import React, { useReducer } from 'react';
+import React, { useMemo, useReducer } from 'react';
 import { AsyncStorage } from 'react-native';
 
 
@@ -73,5 +73,15 @@ function AuthProvider(props) {
             throw new Error(error)
         }
     };
+
+    const value = useMemo(() => {
+        return { state, getAuthState, handleLogin, handleLogout, updateUser };
+    }, [state]);
+
+    return (
+        <AuthContext.Provider value={value}>
+            {props.children}
+        </AuthContext.Provider>
+    );
 
 }
