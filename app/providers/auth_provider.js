@@ -1,6 +1,9 @@
 import Axios from 'axios';
-import React, { useMemo, useReducer } from 'react';
+import React, { useContext, useMemo, useReducer } from 'react';
 import { AsyncStorage } from 'react-native';
+
+//Import reducer, initial state and action types
+import reducer, {initialState, LOGGED_IN, LOGGED_OUT} from "./reducer";
 
 
 
@@ -83,5 +86,8 @@ function AuthProvider(props) {
             {props.children}
         </AuthContext.Provider>
     );
-
 }
+
+const useAuth = () => useContext(AuthContext);
+export { AuthContext, useAuth }
+export default AuthProvider;
