@@ -14,5 +14,10 @@ const authReducer = (state = initialState, action) => {
             let { user } = action;
             return { ...state, isLoggedIn: true, user };
         }
+
+        case LOGGED_OUT: {
+            return { ...state, ...initialState };
+        }
+
     }
 }
