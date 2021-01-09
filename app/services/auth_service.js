@@ -19,3 +19,12 @@ export async function login(data) {
         throw handler(e);
     }
 }
+
+export async function forgotPassword(data) {
+    try {
+        let res = await axios.post(c.FORGOT_PASSWORD, data);
+        return res.data;
+    } catch (e) {
+        throw handler(e);
+    }
+}
