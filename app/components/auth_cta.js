@@ -22,3 +22,12 @@ export default function CTA({ title, ctaText, onPress, style, titleStyle, ctaSty
         </View>
     )
 };
+
+CTA.defaultProps = {
+    title: null,
+    ctaText: null,
+    onPress: {},
+    style: {},
+    titleStyle: {},
+    ctaStyle: {},
+};
