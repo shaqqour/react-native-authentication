@@ -13,3 +13,8 @@ export const Header = (props) => {
         </View>
     )
 };
+
+Header.defaultProps = {
+    title: "",
+    style: {}
+};
