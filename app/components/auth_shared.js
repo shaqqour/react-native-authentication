@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 //HEADER COMPONENT
 export const Header = (props) => {
@@ -27,3 +27,22 @@ export const ErrorText = ({ error }) => {
 ErrorText.defaultProps = {
     error: ""
 };
+
+const styles = StyleSheet.create({
+    header: {
+        height: 50,
+        justifyContent: "center"
+    },
+
+    headerText: {
+        fontSize: 25,
+        color: "#362068",
+        fontWeight: "400",
+        fontFamily: "Helvetica Neue"
+    },
+
+    errorText: {
+        marginBottom: 8,
+        color: "red"
+    }
+});
