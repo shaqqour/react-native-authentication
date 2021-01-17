@@ -18,3 +18,12 @@ Header.defaultProps = {
     title: "",
     style: {}
 };
+
+//ERROR COMPONENT
+export const ErrorText = ({ error }) => {
+    return <Text style={styles.errorText}>{error}</Text>
+};
+
+ErrorText.defaultProps = {
+    error: ""
+};
