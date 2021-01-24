@@ -29,4 +29,10 @@ export default function AuthLoading(props) {
         }
     }
 
+    return (
+        <View style={{ backgroundColor: "#fff", alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+            <ActivityIndicator />
+            <Text>{"Loading User Data"}</Text>
+        </View>
+    );
 };
