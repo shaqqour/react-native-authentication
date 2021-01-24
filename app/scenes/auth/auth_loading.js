@@ -8,4 +8,25 @@ export default function AuthLoading(props) {
     const { navigate } = props.navigation;
     const { getAuthState } = useAuth();
 
+    useEffect(() => {
+        initialize()
+    }, []);
+
+    async function initialize() {
+        try {
+            const { user } = await getAuthState();
+
+            if (user) {
+                //check if username exist
+                let username = !!(user.username);
+
+                if (username) navigate('App');
+                else navigate('Auth', {}, StackActions.replace({ routeName: "Username" }))
+
+            } else navigate('Auth');
+        } catch (e) {
+            navigate('Auth');
+        }
+    }
+
 };
