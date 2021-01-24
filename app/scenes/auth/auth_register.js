@@ -21,4 +21,22 @@ export default function Register(props) {
         { name: 'password', label: 'Password', required: true, secure: true }
     ];
 
+    async function onSubmit(state) {
+        setLoading(true);
+
+        try {
+            let response = await api.register(state);
+            setLoading(false);
+            Alert.alert(
+                'Registration Successful',
+                response.message,
+                [{ text: 'OK', onPress: () => navigation.replace("Login") }],
+                { cancelable: false },
+            );
+        } catch (error) {
+            setError(error.message);
+            setLoading(false)
+        }
+    }
+
 };
