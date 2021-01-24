@@ -13,4 +13,12 @@ export default function Register(props) {
     //1 - DECLARE VARIABLES
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const fields = [
+        { name: 'firstName', label: 'First Name', required: true },
+        { name: 'lastName', label: 'Last Name', required: true },
+        { name: 'email', label: 'Email Address', required: true },
+        { name: 'password', label: 'Password', required: true, secure: true }
+    ];
+
 };
