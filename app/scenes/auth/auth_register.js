@@ -56,3 +56,9 @@ export default function Register(props) {
         </View>
     );
 };
+
+Register.navigationOptions = ({ }) => {
+    return {
+        title: ``
+    }
+};
