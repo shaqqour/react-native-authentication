@@ -41,4 +41,6 @@ export default function Login(props) {
         }
     }
 
+    let formProps = { title: "Login", fields, onSubmit, loading };
+
 };
