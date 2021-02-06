@@ -21,4 +21,24 @@ export default function Login(props) {
         { name: 'email', label: 'Email Address', required: true },
         { name: 'password', label: 'Password', required: true, secure: true }
     ];
+
+    async function onSubmit(state) {
+        setLoading(true);
+
+        try {
+            let response = await api.login(state);
+            await handleLogin(response);
+
+            setLoading(false);
+
+            //check if username is null
+            let username = (response.user.username !== null);
+            if (username) navigate('App');
+            else navigation.replace('Username');
+        } catch (error) {
+            setError(error.message);
+            setLoading(false)
+        }
+    }
+
 };
