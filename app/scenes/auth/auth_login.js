@@ -42,5 +42,25 @@ export default function Login(props) {
     }
 
     let formProps = { title: "Login", fields, onSubmit, loading };
+    return (
+        <View style={{ flex: 1, paddingHorizontal: 16, backgroundColor: "#fff" }}>
+            <Header title={"Login"} />
+            <View style={{ flex: 1 }}>
+                <ErrorText error={error} />
+                <Form {...formProps}>
+                    <CTA
+                        ctaText={"Forgot Password?"}
+                        onPress={() => navigation.navigate("ForgotPassword")}
+                        style={{ marginTop: 20 }} />
+
+                    <CTA
+                        title={"Don't have an account?"}
+                        ctaText={"Register"}
+                        onPress={() => navigation.replace("Register")}
+                        style={{ marginTop: 50 }} />
+                </Form>
+            </View>
+        </View>
+    );
 
 };
