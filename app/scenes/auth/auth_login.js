@@ -62,5 +62,10 @@ export default function Login(props) {
             </View>
         </View>
     );
+};
 
+Login.navigationOptions = ({ }) => {
+    return {
+        title: ``
+    }
 };
