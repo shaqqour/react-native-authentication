@@ -35,4 +35,14 @@ export default function Username(props) {
         }
     }
 
+    let formProps = { title: "Submit", fields, onSubmit, loading };
+    return (
+        <View style={{ flex: 1, paddingHorizontal: 16, backgroundColor: "#fff" }}>
+            <Header title={"Select Username"} />
+            <View style={{ flex: 1 }}>
+                <ErrorText error={error} />
+                <Form {...formProps} />
+            </View>
+        </View>
+    );
 };
