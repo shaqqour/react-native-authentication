@@ -15,4 +15,24 @@ export default function Username(props) {
     const [loading, setLoading] = useState(false);
     const { state, updateUser } = useAuth();
 
+    const fields = [
+        { name: 'username', label: 'Username', required: true }
+    ];
+
+    async function onSubmit(data) {
+        setLoading(true);
+
+        try {
+            let response = await api.updateProfile(state.user._id, data);
+            updateUser(response.user);
+
+            setLoading(false);
+
+            navigation.navigate('App');
+        } catch (error) {
+            setError(error.message);
+            setLoading(false)
+        }
+    }
+
 };
