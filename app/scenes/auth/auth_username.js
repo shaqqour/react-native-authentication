@@ -46,3 +46,9 @@ export default function Username(props) {
         </View>
     );
 };
+
+Username.navigationOptions = ({ }) => {
+    return {
+        title: ``
+    }
+};
